@@ -15,12 +15,12 @@ predicted
 # dog Train
 <img src="read%20me%20images/dogTrain.jpg" width="512"/>
 real
-<img src="read%20me%20images/dogTrainMaskReal.jpg" width="512"/>
+<img src="read%20me%20images/dogTrainReal.jpg" width="512"/>
 predicted
 <img src="read%20me%20images/dogTrainPredicted.jpg" width="512"/>
 # Fish Test
 <img src="read%20me%20images/dogTest.jpg" width="512"/>
 real
-<img src="read%20me%20images/dogTestMaskReal.jpg" width="512"/>
+<img src="read%20me%20images/dogTestReal.jpg" width="512"/>
 predicted
 <img src="read%20me%20images/dogTestPredicted.jpg" width="512"/>
