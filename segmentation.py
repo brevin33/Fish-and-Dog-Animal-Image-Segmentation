@@ -33,8 +33,8 @@ hyperParams = {"conLayers": [3,4],
                 "dropoutAmount": [0.01,0.1,0.2,0.3,0.1,0.1,0.1],
               }
 
-IMG_HEIGHT = 256
-IMG_WIDTH = 256
+IMG_HEIGHT = 128
+IMG_WIDTH = 128
 IMG_CHANNELS = 3
 TRAIN_SIZE = 180
 
@@ -99,16 +99,16 @@ def do_cnn_fit(my_args):
     for i in range(1):
         early_stopping = keras.callbacks.EarlyStopping(monitor='loss', patience=20, restore_best_weights=True)
         #model = create_model(my_args, X.shape[1:])
-        model = joblib.load("dogModel2.joblib")
+        model = joblib.load("dogModel.joblib")
         #model.summary()
-        model.fit(X, Y, epochs=50, verbose=1, callbacks=[early_stopping], validation_split=my_args.validation_split)
+        model.fit(X, Y, epochs=25, verbose=1, callbacks=[early_stopping], validation_split=my_args.validation_split)
         accuracy = getAccuracy(my_args,model)
         print(accuracy)
         if accuracy >= bestAccuracy:
             bestAccuracy = accuracy
             bestModel = model
-            joblib.dump(bestModel, "dogModel2.joblib")
-    joblib.dump(bestModel, "dogModel2.joblib")
+            joblib.dump(bestModel, "dogModel.joblib")
+    joblib.dump(bestModel, "dogModel.joblib")
     print(bestAccuracy)
     return
 #
@@ -168,7 +168,7 @@ def getAccuracy(my_args,model):
     return accuracy_score
 
 def show_score(my_args):
-    model = joblib.load("dogModel2.joblib")
+    model = joblib.load("dogModel.joblib")
     model.summary()
     print("test or validation acceracy: " + str(getAccuracy(my_args,model)))
     image_x = random.randint(0, TRAIN_SIZE-1)
@@ -188,15 +188,6 @@ def parse_args(argv):
     #
     # Pipeline configuration
     #
-    parser.add_argument('--features',      '-f', default=None, action="extend", nargs="+", type=str,
-                        help="column names for features")
-    parser.add_argument('--label',         '-l', default="label",   type=str,   help="column name for label")
-    parser.add_argument('--use-polynomial-features', '-p', default=0,         type=int,   help="degree of polynomial features.  0 = don't use (default=0)")
-    parser.add_argument('--use-scaler',    '-s', default=0,         type=int,   help="0 = don't use scaler, 1 = do use scaler (default=0)")
-    parser.add_argument('--categorical-missing-strategy', default="",   type=str,   help="strategy for missing categorical information")
-    parser.add_argument('--numerical-missing-strategy', default="",   type=str,   help="strategy for missing numerical information")
-    parser.add_argument('--print-preprocessed-data', default=0,         type=int,   help="0 = don't do the debugging print, 1 = do print (default=0)")
-
     
     parser.add_argument('--shuffle',                       action='store_true',  help="Shuffle data when loading.")
     parser.add_argument('--no-shuffle',    dest="shuffle", action='store_false', help="Do not shuffle data when loading.")

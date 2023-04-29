@@ -16,8 +16,8 @@ from skimage.io import imread, imshow, imsave
 import PIL
 
 
-IMG_HEIGHT = 256
-IMG_WIDTH = 256
+IMG_HEIGHT = 128
+IMG_WIDTH = 128
 IMG_CHANNELS = 3
 TRAIN_SIZE = 180
 
