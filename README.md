@@ -1,5 +1,7 @@
 # Fish-and-Dog-Animal-Image-Segmentation
 
+Dog And Trout Image segmentaion using a hyperparameterized U-Net model. models where made using Keras and Tensorflow
+
 # Fish Train
 <img src="read%20me%20images/fishTrain.jpg" width="256"/>
 real
