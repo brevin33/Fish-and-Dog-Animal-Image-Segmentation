@@ -33,8 +33,8 @@ hyperParams = {"conLayers": [3,4],
                 "dropoutAmount": [0.01,0.1,0.2,0.3,0.1,0.1,0.1],
               }
 
-IMG_HEIGHT = 128
-IMG_WIDTH = 128
+IMG_HEIGHT = 256
+IMG_WIDTH = 256
 IMG_CHANNELS = 3
 TRAIN_SIZE = 180
 
